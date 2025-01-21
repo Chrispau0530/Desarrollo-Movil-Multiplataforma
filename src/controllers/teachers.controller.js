@@ -17,4 +17,15 @@ teachersController.getAll=(req,res)=>{
     })
    
 }
+
+
+teachersController.getOne=(req,res)=>{
+teachersDAO.getOne(req.params.name)
+.then((Teachers)=>{
+    if(Teachers!=null)
+        res.json({data:Teachers})
+    else
+         res.json({data:{message:"Teachers not found"}})
+})
+}
 export default teachersController

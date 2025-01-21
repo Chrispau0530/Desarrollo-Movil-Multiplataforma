@@ -1,6 +1,10 @@
 
 import { Router } from "express";
-import c
+import clasroomController from "../controllers/clasroom.controller.js";
 const claroomsRoutes = Router()
-studentsRoutes.get('/getAllclasroom',studentsController.getAll)
+claroomsRoutes.get('/getAll',clasroomController.getAll)
+claroomsRoutes.get('/getOne/:building',clasroomController.getOne)
 export default claroomsRoutes
+
+
+

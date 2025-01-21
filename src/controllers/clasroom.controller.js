@@ -17,4 +17,14 @@ clasroomController.getAll=(req,res)=>{
     })
    
 }
+
+clasroomController.getOne=(req,res)=>{
+clasroomDAO.getOne(req.params.building)
+.then((clasroom)=>{
+    if(clasroom!=null)
+        res.json({data:clasroom})
+    else
+         res.json({data:{message:"clasroom not found"}})
+})
+}
 export default clasroomController

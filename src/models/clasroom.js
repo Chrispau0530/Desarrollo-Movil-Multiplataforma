@@ -1,6 +1,6 @@
 import {model,Schema} from 'mongoose'
 const clasroomsSchema = new Schema ({
-    student_id:{
+    _id:{
         unique:true,
         require:true,
         type:Number
@@ -14,4 +14,4 @@ const clasroomsSchema = new Schema ({
 versionKey:false,
 timestamps:true
 })
-export default model('Clasroom',clasroomsSchema)
+export default model('clasroom',clasroomsSchema)

@@ -17,4 +17,15 @@ studentsController.getAll=(req,res)=>{
     })
    
 }
+
+
+studentsController.getOne=(req,res)=>{
+studentDAO.getOne(req.params.student_id)
+.then((Student)=>{
+    if(Student!=null)
+        res.json({data:Student})
+    else
+         res.json({data:{message:"Student not found"}})
+})
+}
 export default studentsController

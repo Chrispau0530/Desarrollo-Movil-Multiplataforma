@@ -7,7 +7,7 @@ import teachersRoutes from './routes/teachers.routes.js'
 import claroomsRoutes from './routes/clasroom.routes.js'
 const app = express()
 //senttigs
-app.set('port,process.env.port || 3000')
+app.set('port',process.env.port || 3000)
 //Middlewares 
 
 app.use(express.json())
