@@ -1,6 +1,8 @@
 const studentsController ={}
+import error from "mongoose/lib/error/index.js"
 import studentDAO from "../dao/students.dao.js"
 import Student from "../models/Student.js"
+
 studentsController.getAll=(req,res)=>{
     //Aqui le voy a pedir al DAO los datos de los estudiantes 
     studentDAO.getAll()
@@ -27,5 +29,22 @@ studentDAO.getOne(req.params.student_id)
     else
          res.json({data:{message:"Student not found"}})
 })
+}
+
+
+studentsController.insert=(req,res)=>{
+    studentDAO.insert(req.body)
+    .then((res)=>{
+        res.json({data:{
+            message:"Student save",
+            Student:res
+        }
+    })
+
+
+    })
+    .catch((error)=>{
+        res.json({data:{message:error}})
+    })
 }
 export default studentsController
