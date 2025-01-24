@@ -28,4 +28,21 @@ teachersDAO.getOne(req.params.name)
          res.json({data:{message:"Teachers not found"}})
 })
 }
+
+
+teachersController.insert=(req,res)=>{
+    teachersDAO.insert(req.body)
+    .then((res)=>{
+        res.json({data:{
+            message:"Teachers save",
+            Teachers:res
+        }})
+    })
+
+    .catch((error)=>{
+        res.json({data:{
+            message:"Error te falto algunos parametros "
+        }})
+    })
+}
 export default teachersController

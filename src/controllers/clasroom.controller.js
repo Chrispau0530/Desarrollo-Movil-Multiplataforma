@@ -27,4 +27,21 @@ clasroomDAO.getOne(req.params.building)
          res.json({data:{message:"clasroom not found"}})
 })
 }
+
+
+clasroomController.insert=(req,res)=>{
+    clasroomDAO.insert(req.body)
+    .then((res)=>{
+        res.json({data:{
+            message:"clasroom save",
+            clasroom:res
+        }})  
+    })
+
+    .catch((error)=>{
+        res.json({data:{
+            message:"Error te falta algunos parametros "
+        }})
+    })
+}
 export default clasroomController
