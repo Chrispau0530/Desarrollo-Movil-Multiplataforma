@@ -12,7 +12,16 @@ studentDAO.insert=async(Student)=>{
     return await Student.create(Student)
 }
 
+studentDAO.updateOne = async (student__id, studentData) => {
+    return await Student.findOneAndUpdate(
+        { "student__id": student__id, studentData   }, // Filtro para encontrar el documento
+                   
+    );
+};
 
+studentDAO.deleteOne=async(student_id)=>{
+    return await Student.findOneAndDelete({student_id:student_id})
+}
 
 export default studentDAO;
 

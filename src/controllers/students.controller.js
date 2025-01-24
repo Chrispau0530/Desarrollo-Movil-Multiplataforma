@@ -47,4 +47,40 @@ studentsController.insert=(req,res)=>{
         res.json({data:{message:error}})
     })
 }
+
+
+
+studentsController.updateOne=(req,res)=>{
+    console.log(req.body)
+    
+    studentDAO.updateOne(req.params.student__id,req.body)
+    .then((result)=>{
+        res.status(200).json({
+            data:{
+            message:"Student update succesfully",
+            result:result
+            
+            
+        }
+        })
+    })
+    .catch((error)=>{
+        res.json({data:{message:error}})
+    })
+}
+
+studentsController.deleteOne=(req,res)=>{
+    studentDAO.deleteOne(req.params.student_id)
+    .then((studentDelete)=>{
+        res.json({
+            data:{
+                message:"Student deleted succesfully",
+                studentDelete:studentDelete
+            }
+        })
+    })
+    .catch((error)=>{
+        res.json({data:{error:error}})
+    })
+}
 export default studentsController
